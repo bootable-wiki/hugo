@@ -1,0 +1,7 @@
+{{ define "main" }}
+<h2>{{ .Title }}</h2>
+{{ .Content }}
+{{ if .Param "tags" }}
+<p>Tags: {{ range .Params.tags }}<a href="/tags/{{ . | urlize }}">{{ . }}</a> {{ end }}</p>
+{{ end }}
+{{ end }}

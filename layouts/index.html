@@ -1,0 +1,23 @@
+{{ define "title" }}Home{{ end }}
+{{ define "main" }}
+<h2>Welcome</h2>
+<p>This website contains articles about bootable media, UEFI, and various technical experiments.</p>
+
+{{ with .Site.Taxonomies.tags }}
+<h3>Tags</h3>
+<ul>
+{{- range .ByCount }}
+<li><a href="{{ .Page.RelPermalink }}">{{ .Page.Name }}</a> ({{ .Count }})</li>
+{{- end }}
+</ul>
+{{ end }}
+
+<h3>Articles</h3>
+<ul>
+{{- range .Site.RegularPages.ByTitle }}
+<li>
+	<a href="{{ .RelPermalink }}">{{ .Title }}</a>
+</li>
+{{- end }}
+</ul>
+{{ end }}

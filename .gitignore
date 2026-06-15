@@ -1,0 +1,29 @@
+# Ignore everything by default
+*
+
+# Include specific files and directories
+!.gitignore
+!config.toml
+
+# Content
+!content/
+!content/*
+!content/*/*
+!content/*/*/*
+!content/*/*/*/*
+
+# Layouts
+!layouts/
+!layouts/*
+!layouts/*/*
+!layouts/*/*/*
+!layouts/*/*/*/*
+
+# Theme
+!themes/
+!themes/primitive/
+!themes/primitive/*
+!themes/primitive/*/*
+!themes/primitive/*/*/*
+!themes/primitive/*/*/*/*
+!themes/primitive/*/*/*/*/*

@@ -1,0 +1,16 @@
+defaultContentLanguage = "en"
+title = "Bootable.Wiki"
+baseURL = 'https://bootable.wiki'
+languageCode = 'en-us'
+contentDir = "content"
+theme = "primitive"
+
+[params]
+  author = "Catherine"
+  relatedtext = "Related"
+
+  datesinlist = false
+  authorsinlist = true
+  nextprev = false
+  taglist = false
+  showrss = false

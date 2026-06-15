@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>{{ .Site.Title }}</title>
+	<link rel="stylesheet" href="{{ "style.css" | relURL }}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+</head>
+<body>
+<main>
+<header><h1><a href="/">{{ .Site.Title }}</a></h1></header>
+<article>
+{{ block "main" . }}
+{{ end }}
+</article>
+</main>
+<footer>
+	<a href="{{ .Site.BaseURL }}">{{ .Site.BaseURL }}</a>
+</footer>
+</body>
+</html>
