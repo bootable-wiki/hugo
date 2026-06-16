@@ -27,3 +27,7 @@
 !themes/primitive/*/*/*
 !themes/primitive/*/*/*/*
 !themes/primitive/*/*/*/*/*
+
+# CI/CD
+!.github/
+!.github/**

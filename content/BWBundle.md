@@ -5,6 +5,7 @@ tags = ['Multi-boot', 'GRUB', 'UEFI', 'Linux']
 layout = 'single'
 +++
 
+
 ## What is BWBundle?
 
 BWBundle is a pre-configured multi-boot system designed to simplify the process of creating bootable USB drives. It combines GRUB2 configurations and essential EFI tools into a ready-to-use package. ISO files are not included and must be downloaded separately.
