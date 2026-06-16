@@ -35,9 +35,7 @@ Steps
 ## 2. Download Ventoy Bootable zip file
 The iPhone cannot extract ISO files without 3rd party apps. The Ventoy Live CD ISO has been repacked into a zip file with secure boot support. 
 
-[ Download `Ventoy_Bootable.zip`](https://pixeldrain.com/api/file/rZHHGJgQ)
-
-[ Mirror Download `fat32usb_build104.zip`](https://github.com/catherinedoyel/ventoyimg/releases/)
+[ Download the FAT32 USB build `fat32usb_buildXXX.zip`](https://github.com/catherinedoyel/ventoyimg/releases/)
 
 - Open the Files app
 - Open the downloads folder

@@ -12,7 +12,7 @@ Ventoy uses a specific disk layout to allow for multi-boot capabilities. Usually
 If you do not want to use the standard Ventoy installer, you can flash a pre-built virtual hard drive image.
 
 1. Choose an image size (256mb, 1gb, 4gb, 8gb) that fits your physical USB drive.
-2. Download and extract the zip file to get the .img file.
+2. [Download](https://github.com/catherinedoyel/ventoyimg/releases) and extract the zip file to get the .img file.
 3. Use a flashing tool like balenaEtcher or Raspberry Pi Imager to write the image to your drive.
 4. Once complete, copy any ISO files directly to the visible Ventoy partition.
 
