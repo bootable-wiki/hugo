@@ -20,13 +20,13 @@ The bundle includes GRUB configuration files that provide a complete boot menu w
 | KeyTool | View Secure Boot keys & remove enrolled keys or hashes |
 | Netboot.xyz | Boot into a variety of distros over the ethernet port |
 | Memtest86+ | Test the memory of your PC |
-| UEFI Shell | Basic enviroment to run other EFI programs, copy data, edit text files |
+| UEFI Shell | Basic environment to run other EFI programs, copy data, edit text files |
 | Rufus Driver | NTFS / exFAT booting support, requires two partitions |
 | SecureBootRecovery | Verify & install the Microsoft UEFI CA 2023 |
 
 ## Tested ISOs
 
-BWBundle uses filename patterns to detect ISOs. This heuristic approach means older and future releases may also work. For ISOs listed with Secure Boot Disabled (⛔) you need to disable in BIOS/UEFI.
+BWBundle uses filename patterns to detect ISOs. This heuristic approach means older and future releases may also work. For ISOs listed with Secure Boot Disabled (⛔) you need to disable it in BIOS/UEFI.
 
 | Distribution | Tested ISO | Secure Boot |
 |---|---|---|

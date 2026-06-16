@@ -13,7 +13,7 @@ tags = ['iOS', 'UEFI', 'Ventoy']
 > I would not recommend drives with lightning connector built in as they will usually require that you use their specific app.
 
 ## 1. Check if the USB format is FAT32 with Files app.
-For UEFI booting the file system needs to be supported by the motherboard. The most commonly supported file system is [FAT32](https://en.wikipedia.org/wiki/File_Allocation_Table#FAT32). On Apple platforms FAT32 is labled as "MS-DOS (FAT)"
+For UEFI booting the file system needs to be supported by the motherboard. The most commonly supported file system is [FAT32](https://en.wikipedia.org/wiki/File_Allocation_Table#FAT32). On Apple platforms FAT32 is labeled as "MS-DOS (FAT)"
 Steps
 - Open the Files app
 - Tap on Browse
@@ -35,7 +35,7 @@ Steps
 ## 2. Download Ventoy Bootable zip file
 The iPhone cannot extract ISO files without 3rd party apps. The Ventoy Live CD ISO has been repacked into a zip file with secure boot support. 
 
-[ Download the FAT32 USB build `fat32usb_buildXXX.zip`](https://github.com/catherinedoyel/ventoyimg/releases/)
+[Download the FAT32 USB build `fat32usb_buildXXX.zip`](https://github.com/catherinedoyel/ventoyimg/releases/)
 
 - Open the Files app
 - Open the downloads folder

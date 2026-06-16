@@ -1,5 +1,6 @@
 +++
 title = 'Creating Windows Installers on iPad'
+date = 2025-07-24T00:00:00Z
 layout = 'single'
 tags = ['iPadOS', 'UEFI', 'Windows', 'Diskpart']
 +++

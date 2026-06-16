@@ -1,7 +1,7 @@
 defaultContentLanguage = "en"
 title = "Bootable.Wiki"
-baseURL = 'https://bootable.wiki'
-languageCode = 'en-us'
+baseURL = "https://bootable.wiki"
+languageCode = "en-us"
 contentDir = "content"
 theme = "primitive"
 

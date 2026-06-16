@@ -1,5 +1,6 @@
 +++
 title = 'Chromebook Ventoy'
+date = 2023-12-04T00:00:00Z
 layout = 'single'
 tags = ['Chromebook', 'UEFI', 'Ventoy']
 +++
