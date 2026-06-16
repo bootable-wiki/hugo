@@ -18,7 +18,7 @@ For the motherboard to recognize the initial boot files, the drive must use the 
 
 ## 2. Prepare the Initial Files
 Standard FAT32 partitions cannot hold files larger than 4GB, which means the 5GB install.wim file in the Windows ISO cannot be stored.
-- Download the UEFI NTFS driver (associated with Rufus).
+- Download [BWBundle](/bwbundle/) (zip) or the [UEFI NTFS driver](https://github.com/pbatard/rufus/blob/master/res/uefi/uefi-ntfs.img) (img) (from Rufus).
 - Extract all files from the Windows ISO to the USB drive EXCEPT for install.wim.
 - This creates a "light" installer capable of booting into a command prompt.
 
