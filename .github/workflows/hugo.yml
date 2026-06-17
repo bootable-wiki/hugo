@@ -38,21 +38,24 @@ jobs:
           sed -i 's/^[[:space:]]*//; s/[[:space:]]*$//' public/style.css
           tr -d '\n' < public/style.css > tmp && mv tmp public/style.css
 
-      - name: Upload to BunnyCDN
+      - name: Install rclone
+        run: |
+          curl -sL https://downloads.rclone.org/rclone-current-linux-amd64.zip -o rclone.zip
+          unzip -q rclone.zip
+          sudo cp rclone-*-linux-amd64/rclone /usr/local/bin
+          rm -rf rclone.zip rclone-*-linux-amd64
+
+      - name: Sync to BunnyCDN
         env:
           BUNNY_API_KEY: ${{ secrets.BUNNY_API_KEY }}
         run: |
-          cd public
-          find . -type f | while read file; do
-            dest="${file#./}"
-            echo "Uploading $dest"
-            curl -s -o /dev/null -w "%{http_code}" -X PUT \
-              "https://storage.bunnycdn.com/bootable-wiki/$dest" \
-              -H "AccessKey: $BUNNY_API_KEY" \
-              -H "Content-Type: application/octet-stream" \
-              --data-binary "@$file"
-            echo ""
-          done
+          rclone config create bunny bunnystorage \
+            storage_zone=bootable-wiki \
+            api_key=$BUNNY_API_KEY \
+            region=de \
+            --non-interactive 2>/dev/null || true
+          rclone sync public bunny:bootable-wiki \
+            --progress --bwlimit 50M
 
       - name: Revert download link for GitHub Pages
         run: |
