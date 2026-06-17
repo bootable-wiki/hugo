@@ -32,6 +32,12 @@ jobs:
       - name: Build
         run: hugo --minify
 
+      - name: Minify CSS
+        run: |
+          sed -i '/^[[:space:]]*$/d' public/style.css
+          sed -i 's/^[[:space:]]*//; s/[[:space:]]*$//' public/style.css
+          tr -d '\n' < public/style.css > tmp && mv tmp public/style.css
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: public
