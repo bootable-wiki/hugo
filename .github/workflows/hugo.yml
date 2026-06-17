@@ -27,10 +27,30 @@ jobs:
 
       - name: Inject download link
         run: |
-          sed -i 's|^## What is BWBundle?|## Downloads\n\nDownload the latest release from [GitHub](https://github.com/bootable-wiki/bwbundle/releases).\n\n## What is BWBundle?|' content/BWBundle.md
+          sed -i 's|^## What is BWBundle?|## Downloads\n\nDownload the latest version from [BunnyCDN](https://bootable-wiki.b-cdn.net/bwbundle.zip). Older versions are available on [GitHub](https://github.com/bootable-wiki/bwbundle/releases).\n\n## What is BWBundle?|' content/BWBundle.md
 
       - name: Build
         run: hugo --minify
+
+      - name: Upload to BunnyCDN
+        env:
+          BUNNY_API_KEY: ${{ secrets.BUNNY_API_KEY }}
+        run: |
+          cd public
+          find . -type f | while read file; do
+            dest="${file#./}"
+            echo "Uploading $dest"
+            curl -s -o /dev/null -w "%{http_code}" -X PUT \
+              "https://storage.bunnycdn.com/bootable-wiki/$dest" \
+              -H "AccessKey: $BUNNY_API_KEY" \
+              -H "Content-Type: application/octet-stream" \
+              --data-binary "@$file"
+            echo ""
+          done
+
+      - name: Revert download link for GitHub Pages
+        run: |
+          sed -i 's|Download the latest version from.*GitHub</a>\.|Download the latest release from <a href="https://github.com/bootable-wiki/bwbundle/releases">GitHub</a>.|' public/bwbundle/index.html
 
       - uses: actions/upload-pages-artifact@v3
         with:
