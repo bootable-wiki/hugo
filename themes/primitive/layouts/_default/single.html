@@ -4,4 +4,14 @@
 {{ if .Param "tags" }}
 <p>Tags: {{ range .Params.tags }}<a href="/tags/{{ . | urlize }}">{{ . }}</a> {{ end }}</p>
 {{ end }}
+{{ if eq .Title "BWBundle - Pre-configured Multi-Boot System" }}
+<script>
+if (document.body.textContent.indexOf('BunnyCDN') !== -1 && location.protocol === 'https:') {
+  var links = document.querySelectorAll('a[href="/bwbundle.zip"]');
+  for (var i = 0; i < links.length; i++) {
+    links[i].parentNode.innerHTML = links[i].parentNode.innerHTML.replace(/ or <a[^>]*>.*?BunnyCDN.*?<\/a>/, '');
+  }
+}
+</script>
+{{ end }}
 {{ end }}

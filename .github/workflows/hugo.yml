@@ -27,7 +27,7 @@ jobs:
 
       - name: Inject download link
         run: |
-          sed -i 's|^# What is BWBundle?|## Downloads\n\nDownload the latest version from [BunnyCDN](/bwbundle.zip). Older versions are available on [GitHub](https://github.com/bootable-wiki/bwbundle/releases).\n\n# What is BWBundle?|' content/BWBundle.md
+          sed -i 's|^# What is BWBundle?|# Downloads\n\nDownload the latest version from [S4](https://s3.g.megas4.com/qcoiqmmxw3mnttl3zblb75ht57c7bkt677ept/bootable-wiki/bwbundle.zip) or [BunnyCDN (http)](/bwbundle.zip). Older versions are available on [GitHub](https://github.com/bootable-wiki/bwbundle/releases).\n\n# What is BWBundle?|' content/BWBundle.md
 
       - name: Build
         run: hugo --minify
