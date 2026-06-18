@@ -40,14 +40,14 @@ jobs:
 
       - name: Sync to BunnyCDN
         env:
-          BUNNY_API_KEY: ${{ secrets.BUNNY_API_KEY }}
+          BUNNY_SZ_KEY: ${{ secrets.BUNNY_SZ_KEY }}
         run: |
           cd public
           find . -type f | while read file; do
             dest="${file#./}"
             curl -s -o /dev/null -w "%{http_code}" -X PUT \
               "https://storage.bunnycdn.com/bootable-wiki/$dest" \
-              -H "AccessKey: $BUNNY_API_KEY" \
+              -H "AccessKey: $BUNNY_SZ_KEY" \
               --data-binary "@$file"
           done
 
