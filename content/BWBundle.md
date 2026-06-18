@@ -6,13 +6,67 @@ layout = 'single'
 +++
 
 
-## What is BWBundle?
+# What is BWBundle?
 
-BWBundle is a pre-configured multi-boot system designed to simplify the process of creating bootable USB drives. It combines GRUB2 configurations and essential EFI tools into a ready-to-use package. ISO files are not included and must be downloaded separately.
+BWBundle packs a bootable USB system into a zip file. Just extract it to a flash drive, add [compatible ISOs](#tested-isos).  
+The boot menu lists them automatically.
 
-## Contents
+# Why BWBundle?
 
-The bundle includes GRUB configuration files that provide a complete boot menu with support for multiple Linux distributions and system utilities. Including some of the following tools.
+### Zero-install setup
+
+No software to install and no administrator rights needed.  
+Download the zip, extract it, and copy the files to a USB drive.  
+This means you can prepare the drive from almost any device such as an iPhone or Chromebook.
+
+### Secure Boot
+
+Secure Boot support was the primary constraint that shaped this project.  
+Uses stock Canonical-signed GRUB, the same binaries shipped with Ubuntu Linux.  
+Tools like UEFI Shell, Memtest86+, and KeyTool, can be enrolled through MokManager.  
+> Fedora (Red Hat's signature) and Arch (unsigned) require Secure Boot turned off for installation.  
+> This does not prevent you from enabling secure boot after installation later.  
+> It's just that Ubuntu's shim only really adds Ubuntu's kernel signatures to secure boot.
+
+### Drop ISOs and boot
+
+Place any supported ISO on the drive and it appears in the boot menu.  
+If there is a newer version of a supported distribution, give it a try it may work.  
+The menu uses filename patterns and will detect it automatically.  
+Standalone EFI files also appear automatically (enroll through MokManager if unsigned).
+
+### Bundled tools ready to go
+
+BWBundle includes utilities like Memtest86+, the UEFI Shell, MokManager, and Netboot.xyz out of the box.  
+These are bootable immediately, even before adding any ISO files.
+
+### Compatible with other tools
+
+Ventoy will always  have a larger supported ISO list and broader hardware support (MBR, 32-bit x86, ARM).  
+Between issues enrolling Secure Boot keys or SBAT errors, you may still want something that boots more consistently even if the full feature set is not present.  
+BWBundle is built to cohabitate on the same flash drive by using unallocated space after Ventoy's reserved partition feature.
+
+# Requirements
+
+- UEFI x86_64 (most computers since 2012)
+- Know how to unzip files to a flash drive and have a general idea of how bootable USB drives work
+- USB flash drive, 8GB or larger recommended. 
+> Watch out for fakes.  
+> If you cannot format a drive and need FAT32 out of the box, choose 32GB or smaller to try and guarantee it's already formatted as FAT32.
+
+# Usage
+
+Extact the BWBundle contents to the root of a FAT32-formatted USB drive.  
+FAT32 is the most reliable format and works on all UEFI systems.  
+The GRUB configurations will automatically detect and present menu entries for any matching ISO files or EFI binaries present on the drive. 
+
+> The Rufus NTFS driver is included so you can install Windows from the same drive alongside Linux ISOs. 
+> I can offer suggestions but not direct support for this setup. See [Creating Windows Installers on iPad](/ios_windows/).
+
+# Bundled Tools
+
+The bundle includes GRUB configuration files that provide a complete boot menu with support for multiple Linux distributions and system utilities.  
+Including some of the following tools.
 
 | Name | Purpose |
 |---|---|
@@ -24,9 +78,11 @@ The bundle includes GRUB configuration files that provide a complete boot menu w
 | Rufus Driver | NTFS / exFAT booting support, requires two partitions |
 | SecureBootRecovery | Verify & install the Microsoft UEFI CA 2023 |
 
-## Tested ISOs
+# Tested ISOs
 
-BWBundle uses filename patterns to detect ISOs. This heuristic approach means older and future releases may also work. For ISOs listed with Secure Boot Disabled (⛔) you need to disable it in BIOS/UEFI.
+BWBundle uses filename patterns to detect ISOs.  
+This heuristic approach means older and future releases may also work.  
+For ISOs listed with Secure Boot Disabled (⛔) you need to disable it in BIOS/UEFI.
 
 | Distribution | Tested ISO | Secure Boot |
 |---|---|---|
@@ -48,22 +104,12 @@ BWBundle uses filename patterns to detect ISOs. This heuristic approach means ol
 | Arch | `archlinux-2026.04.01-x86_64.iso` | ⛔ |
 | Debian | `debian-live-13.4.0-amd64-xfce.iso` | not tested yet |
 
-## Key Features
-
-BWBundle uses glob patterns to automatically detect ISO files and EFI binaries, provides clear warnings when tools require Secure Boot to be disabled, and offers multiple boot modes including standard, compatibility, and RAM-boot options. A built-in system information menu displays CPU, motherboard, BIOS, and Secure Boot status. MokManager is included for enrolling unsigned EFI binaries when Secure Boot is enabled.
-
-## Requirements
-
-UEFI motherboard (Secure Boot may need to be disabled for some tools), USB flash drive (8GB+ recommended for full functionality), and basic understanding of GRUB and EFI booting.
-
-## Usage
-
-Copy the BWBundle contents to the root of a FAT32-formatted USB drive. The GRUB configurations will automatically detect and present menu entries for any matching ISO files or EFI binaries present on the drive.
-
-## Contributions/Ways to help
+# Contributions/Ways to help
 
 Ask questions, in order to improve I need feedback, if something needs a better explanation let me know.
 
-Finding a way to load large loopbacks on Debian builds of GRUB in Secure Boot. I was able to create loopbacks for gparted-live & clonezilla-live, but could not create for MXLinux or LMDE. I forgot the exact error but it's from GRUB trying to create a large loopback.
+Finding a way to load large loopbacks on Debian builds of GRUB in Secure Boot.  
+I was able to create loopbacks for gparted-live & clonezilla-live, but could not create for MXLinux or LMDE.  
+I forgot the exact error but it's from GRUB trying to create a large loopback.
 
 Debian netinst ISO not loading correctly.
