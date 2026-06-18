@@ -27,7 +27,7 @@ jobs:
 
       - name: Inject download link
         run: |
-          sed -i 's|^## What is BWBundle?|## Downloads\n\nDownload the latest version from [BunnyCDN](https://bootable-wiki.b-cdn.net/bwbundle.zip). Older versions are available on [GitHub](https://github.com/bootable-wiki/bwbundle/releases).\n\n## What is BWBundle?|' content/BWBundle.md
+          sed -i 's|^## What is BWBundle?|## Downloads\n\nDownload the latest version from [BunnyCDN](/bwbundle.zip). Older versions are available on [GitHub](https://github.com/bootable-wiki/bwbundle/releases).\n\n## What is BWBundle?|' content/BWBundle.md
 
       - name: Build
         run: hugo --minify
@@ -50,6 +50,14 @@ jobs:
               -H "AccessKey: $BUNNY_API_KEY" \
               --data-binary "@$file"
           done
+
+      - name: Purge Bunny CDN cache
+        env:
+          BUNNY_API_KEY: ${{ secrets.BUNNY_API_KEY }}
+        run: |
+          curl -s -o /dev/null -X POST \
+            "https://api.bunny.net/pullzone/6026270/purgeCache" \
+            -H "AccessKey: $BUNNY_API_KEY"
 
       - name: Revert download link for GitHub Pages
         run: |
