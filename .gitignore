@@ -28,6 +28,11 @@
 !themes/primitive/*/*/*/*
 !themes/primitive/*/*/*/*/*
 
+# Static files
+!static/
+!static/*
+!static/*/*
+
 # CI/CD
 !.github/
 !.github/**
