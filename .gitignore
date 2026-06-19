@@ -7,31 +7,20 @@
 
 # Content
 !content/
-!content/*
-!content/*/*
-!content/*/*/*
-!content/*/*/*/*
+!content/**
 
 # Layouts
 !layouts/
-!layouts/*
-!layouts/*/*
-!layouts/*/*/*
-!layouts/*/*/*/*
+!layouts/**
 
 # Theme
 !themes/
 !themes/primitive/
-!themes/primitive/*
-!themes/primitive/*/*
-!themes/primitive/*/*/*
-!themes/primitive/*/*/*/*
-!themes/primitive/*/*/*/*/*
+!themes/primitive/**
 
 # Static files
 !static/
-!static/*
-!static/*/*
+!static/**
 
 # CI/CD
 !.github/
