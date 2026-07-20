@@ -84,6 +84,8 @@ BWBundle uses typical filename patterns to detect ISOs.
 This heuristic approach means older and future releases may also work.  
 For ISOs listed with Secure Boot Disabled (⛔) you need to disable it in BIOS/UEFI.
 
+[Download Linux Mint](https://dl.bootable.wiki/mint-iso)
+
 | Distribution | Tested ISO | Secure Boot |
 |---|---|---|
 | Linux Mint | `linuxmint-22.3-cinnamon-64bit.iso` | ✅ |
