@@ -4,21 +4,4 @@
 {{ if .Param "tags" }}
 <p>Tags: {{ range .Params.tags }}<a href="/tags/{{ . | urlize }}">{{ . }}</a> {{ end }}</p>
 {{ end }}
-{{ if eq .Title "BWBundle - Pre-configured Multi-Boot System" }}
-<script>
-document.addEventListener('click', function(e) {
-  if (e.target.matches('a[href*="megas4.com"]')) {
-    e.preventDefault();
-    new Image().src = '/.dl/bwbundle.zip';
-    window.location.href = e.target.href;
-  }
-});
-if (document.body.textContent.indexOf('BunnyCDN') !== -1 && location.protocol === 'https:') {
-  var links = document.querySelectorAll('a[href="/bwbundle.zip"]');
-  for (var i = 0; i < links.length; i++) {
-    links[i].parentNode.innerHTML = links[i].parentNode.innerHTML.replace(/ or <a[^>]*>.*?BunnyCDN.*?<\/a>/, '');
-  }
-}
-</script>
-{{ end }}
 {{ end }}

@@ -15,8 +15,8 @@ The boot menu lists them automatically.
 
 ### Zero-install setup
 
-No software to install and no administrator rights needed.  
-Download the zip, extract it, and copy the files to a USB drive.  
+- No software to install and no administrator rights needed.  
+- Download the zip, extract it, and copy the files to a USB drive.  
 This means you can prepare the drive from almost any device such as an iPhone or Chromebook.
 
 ### Secure Boot
@@ -56,12 +56,12 @@ BWBundle is built to cohabitate on the same flash drive by using unallocated spa
 
 # Usage
 
-Extact the BWBundle contents to the root of a FAT32-formatted USB drive.  
+Extract the BWBundle contents to the root of a FAT32-formatted USB drive.  
 FAT32 is the most reliable format and works on all UEFI systems.  
 The GRUB configurations will automatically detect and present menu entries for any matching ISO files or EFI binaries present on the drive. 
 
 > The Rufus NTFS driver is included so you can install Windows from the same drive alongside Linux ISOs. 
-> I can offer suggestions but not direct support for this setup. See [Creating Windows Installers on iPad](/ios_windows/).
+> I can offer suggestions but no direct support for this setup. See [Creating Windows Installers on iPad](/ios_windows/).
 
 # Bundled Tools
 
@@ -74,13 +74,13 @@ Including some of the following tools.
 | KeyTool | View Secure Boot keys & remove enrolled keys or hashes |
 | Netboot.xyz | Boot into a variety of distros over the ethernet port |
 | Memtest86+ | Test the memory of your PC |
-| UEFI Shell | Basic environment to run other EFI programs, copy data, edit text files |
+| UEFI Shell | Basic environment to run other EFI programs, edit text files |
 | Rufus Driver | NTFS / exFAT booting support, requires two partitions |
-| SecureBootRecovery | Verify & install the Microsoft UEFI CA 2023 |
+| SecureBootRecovery | Verify & install the Windows UEFI CA 2023 |
 
 # Tested ISOs
 
-BWBundle uses filename patterns to detect ISOs.  
+BWBundle uses typical filename patterns to detect ISOs.  
 This heuristic approach means older and future releases may also work.  
 For ISOs listed with Secure Boot Disabled (⛔) you need to disable it in BIOS/UEFI.
 
@@ -107,6 +107,7 @@ For ISOs listed with Secure Boot Disabled (⛔) you need to disable it in BIOS/U
 # Contributions/Ways to help
 
 Ask questions, in order to improve I need feedback, if something needs a better explanation let me know.
+In order to improve I need feedback. PLEASE ask questions, and send suggestions. If something needs a better explanation, let me know.
 
 Finding a way to load large loopbacks on Debian builds of GRUB in Secure Boot.  
 I was able to create loopbacks for gparted-live & clonezilla-live, but could not create for MXLinux or LMDE.  
